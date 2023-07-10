@@ -3,10 +3,12 @@
 #include "GC/emp-tool.h"
 #include "OT/emp-ot.h"
 #include <thread>
+#include <future>
 #include "GC/feq.h"
 #include "GC/helper.h"
 #include "GC/leaky_deltaot.h"
 #include "GC/config.h"
+#include "utils/ThreadPool.h"
 
 namespace sci {
 //#define __debug
@@ -269,7 +271,7 @@ class Fpre {
 			delete[] d;
 			delete[] dR;
 		}
-		block H2D(block128 a, block128 b, int I) {
+		block128 H2D(block128 a, block128 b, int I) {
 			block128 d[2];
 			d[0] = a;
 			d[1] = a ^ b;

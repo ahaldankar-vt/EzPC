@@ -30,7 +30,7 @@ void recv_partial_block(T * io, block128 * data, int length) {
 }
 
 template<typename T>
-block coin_tossing(PRG prg, T* io, int party) {
+block128 coin_tossing(PRG prg, T* io, int party) {
 	block128 S, S2;
 	char dgst[Hash::DIGEST_SIZE];
 	prg.random_block(&S, 1);
