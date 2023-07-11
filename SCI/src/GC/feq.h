@@ -29,7 +29,7 @@ class Feq { public:
 		char dgst[Hash::DIGEST_SIZE];
 		h.digest(AR);
 		if(party == ALICE) {
-			PRG prg;
+			PRG128 prg;
 			prg.random_data(AR+Hash::DIGEST_SIZE, 16);
 			Hash::hash_once(dgst, AR, Hash::DIGEST_SIZE+16);
 			io->send_data(dgst, Hash::DIGEST_SIZE);

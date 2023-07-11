@@ -4,6 +4,11 @@
 #include "GC/fpre.h"
 
 namespace sci {
+
+#define AND_GATE 0
+#define XOR_GATE 1
+#define NOT_GATE 2
+
 template<typename T>
 class C2PC { public:
 	const static int SSP = 5;//5*8 in fact...
@@ -68,7 +73,7 @@ class C2PC { public:
 		delete[] labels;
 		delete fpre;
 	}
-	PRG prg;
+	PRG128 prg;
 	PRP prp;
 	block128 (* GT)[4][2] = nullptr;
 	block128 (* GTK)[4] = nullptr;

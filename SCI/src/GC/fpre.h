@@ -22,7 +22,7 @@ class Fpre {
 		int party;
 		block128 * keys = nullptr;
 		bool * values = nullptr;
-		PRG prg;
+		PRG128 prg;
 		PRP prp;
 		PRP *prps;
 		T *io[THDS];
@@ -298,7 +298,7 @@ class Fpre {
 		void combine(block128 S, int I, block128 * MAC, block128 * KEY, int length, int bucket_size, block128 * MAC_res, block128 * KEY_res) {
 			int *location = new int[length*bucket_size];
 			for(int i = 0; i < length*bucket_size; ++i) location[i] = i;
-			PRG prg(&S, I); 
+			PRG128 prg(&S, I); 
 			int * ind = new int[length*bucket_size];
 			prg.random_data(ind, length*bucket_size*4);
 			for(int i = length*bucket_size-1; i>=0; --i) {
